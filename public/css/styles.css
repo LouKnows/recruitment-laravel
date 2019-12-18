@@ -1,0 +1,832 @@
+@import './reset.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #9cbfe3; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #3578bc;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2d669f; 
+}
+
+
+*{
+	box-sizing: border-box;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
+ul{
+	list-style-type: none;
+}
+
+body{
+	font-family: 'Roboto', sans-serif;
+	background-color: #f0f0f0;
+	color: #808080;
+}
+
+table{
+	width: 100%;
+	font-size: 14px;
+	table-layout: fixed;
+}
+
+th, td{
+	padding: 10px;
+}
+
+.container{
+	padding: 0 20px 0 20px;
+}
+
+.link,
+a:not(.btn):hover{
+	color: #2d9bd2;
+}
+
+.btn{
+	padding: 5px 15px;
+	border-radius: 5px;
+	border: none;
+}
+
+.btn-large{
+	padding: 15px 40px;
+	border-radius: 5px;
+	border: none;
+	font-size: 16px;
+}
+
+.btn-confirm{
+	color: #fff;
+	background-color: #2d9bd2;
+	cursor: pointer;
+}
+
+.btn-confirm:hover{
+	background-color: #57afdb;
+}
+
+.btn-add{
+	color: #fff;
+	background-color: #46a049;
+	cursor: pointer;
+	position: relative;
+}
+
+.btn-add:hover{
+	background-color: #4eb151;
+}
+
+.btn-more{
+	color: #fff;
+	background-color: #bfbfbf;
+	cursor: pointer;
+}
+
+.btn-more:hover{
+	color: #fff;
+	background-color: #cccccc;
+	cursor: pointer;
+}
+
+.btn-form{
+	margin-left: 40px;
+}
+
+.card{
+	background-color: #fff;
+	box-shadow: 0px 4px 3px rgba(204, 204, 204, 0.25);
+	border-radius: 5px;
+	padding: 15px;
+	position: relative;
+}
+
+.content{
+	position: relative;
+}
+
+.back{
+	color: #2d9bd2;
+}
+
+
+/*** Header ***/
+
+header{
+	position: relative;
+	height: 70px;
+	width: 100%;
+	background-color: #fff;
+}
+
+header::after{
+	content: '';
+	display: block;
+	height: 3px;
+	width: 100%;
+	background: url(../images/header.jpg);
+	background-size: cover;
+	background-position: center;
+	position: absolute;
+	bottom: 0;
+}
+
+.logo{
+	position: absolute;
+	top: 50%;
+	left: 20px;
+	transform: translateY(-50%);
+}
+
+.sign-in{
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	font-size: 14px;
+}
+
+.sub-header{
+	height: 40px;
+	border-bottom: 1px solid #cccccc;
+}
+
+.sub-header ul{
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.sub-header li:not(:last-child){
+	margin-right: 30px;
+}
+
+/*** Resources > Applicants ***/
+
+.resources{
+	display: grid;
+	grid-template-columns: minmax(170px,1fr) 6fr;
+	grid-gap: 40px;
+	margin-top: 40px;
+}
+
+.sidenav{
+	font-size: 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 76px;
+}
+
+.sidenav div:first-child{
+	margin-bottom: 15px;
+}
+
+.cta{
+	font-size: 14px;
+	margin-top: 30px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.cta .search{
+	justify-self: start;
+}
+
+.search input{
+	padding: 2px 5px;
+	color: #808080;
+}
+
+
+.cta a{
+	justify-self: end;
+	margin-right: 25px;
+}
+
+.list{
+  	margin-top: 20px;
+}
+
+.list table{
+	margin-top: 30px;
+}
+
+.list thead{
+	background-color: #3578bc;
+	color: #fff;
+}
+
+.list tbody{
+	font-size: 13px;
+	text-align: center;
+}
+
+.list tr:nth-child(even){
+	background-color: #f2f2f2;
+}
+
+/*** Resource > Applicants > New Applicant ***/
+.back[data-for="new-applicant"]{
+	position: absolute;
+	left: 50%;
+	top: -30px;
+	font-size: 14px;
+}
+
+.resources form > .btn-large{
+	margin-bottom: 40px;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+
+.info{
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.info{
+	margin-bottom: 20px;
+}
+
+.info h3{
+	font-size: 14px;
+	font-weight: bolder;
+	color: #4d4d4d;
+}
+
+/* Personal Data */
+.personal_data{
+	font-size: 13px;
+	padding: 20px;	
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(8, 1fr);
+	grid-template-areas: 
+		"first_name middle_name last_name suffix_name"
+		"mobile_1 mobile_2 email ."
+		"age_gender birthday civil_status religion"
+		"weight_height . . ."
+		"city_address city_address city_address city_address"
+		"province_address province_address province_address province_address"
+		"father_name father_name . ."
+		"mother_name mother_name . .";
+}
+
+/* spacing between element forms */
+.first_name,.middle_name,.last_name,
+.suffix_name,.mobile_1,.mobile_2,.email,
+.age_gender,.birthday,.civil_status,.religion,
+.weight_height,.city_address,.province_address,
+.father_name,.mother_name{
+	padding: 10px 20px;
+}
+
+.first_name{
+	grid-area: first_name;
+}
+.middle_name{
+	grid-area: middle_name;
+}
+.last_name{
+	grid-area: last_name;
+}
+.suffix_name{
+	grid-area: suffix_name;
+}
+.mobile_1{
+	grid-area: mobile_1;
+}
+.mobile_2{
+	grid-area: mobile_2;
+}
+.email{
+	grid-area: email;
+}
+.age_gender{
+	grid-area: age_gender;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 30px;
+}
+.birthday{
+	grid-area: birthday;
+}
+.civil_status{
+	grid-area: civil_status;
+}
+.religion{
+	grid-area: religion;
+}
+.weight_height{
+	grid-area: weight_height;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 30px;
+}
+.city_address{
+	grid-area: city_address;
+}
+.province_address{
+	grid-area: province_address;
+}
+.father_name{
+	grid-area: father_name;
+}
+.mother_name{
+	grid-area: mother_name;
+}
+
+.personal_data input,
+.personal_data select{
+	width: 100%;
+	padding: 2px 5px;
+}
+
+
+/* Spouse info */
+.spouse_info{
+	font-size: 13px;
+	padding: 20px;	
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-areas: 
+		"spouse_fname spouse_mname spouse_lname"
+		"spouse_bday spouse_occupation spouse_contact"
+		"spouse_address spouse_address spouse_address";
+}
+
+.spouse_info > div{
+	padding: 10px 20px;
+}
+
+.spouse_fname{
+	grid-area: spouse_fname;
+}
+.spouse_mname{
+	grid-area: spouse_mname;
+}
+.spouse_lname{
+	grid-area: spouse_lname;
+}
+.spouse_bday{
+	grid-area: spouse_bday;
+}
+.spouse_occupation{
+	grid-area: spouse_occupation;
+}
+.spouse_contact{
+	grid-area: spouse_contact;
+}
+.spouse_address{
+	grid-area: spouse_address;
+}
+
+.spouse_info input{
+	width: 100%;
+	padding: 2px 5px;
+}
+
+/* Emergency Contact */
+.emergency_contact{
+	font-size: 13px;
+	padding: 20px;	
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-template-areas: 
+		"emergency_fullname emergency_number emergency_relation"
+		"emergency_address emergency_address emergency_address";
+}
+
+.emergency_contact > div{
+	padding: 10px 20px;
+}
+
+.emergency_fullname{
+	grid-area: emergency_fullname;
+}
+.emergency_number{
+	grid-area: emergency_number;
+}
+.emergency_relation{
+	grid-area: emergency_relation;
+}
+.emergency_address{
+	grid-area: emergency_address;
+}
+
+.emergency_contact input{
+	width: 100%;
+	padding: 2px 5px;
+}
+
+/* Dependents */
+.dependents{
+	font-size: 13px;
+	padding: 20px;	
+	display: grid;
+	grid-template-columns: minmax(258px,3fr) minmax(183px,1fr);
+}
+
+.dependents > div{
+	padding: 10px 20px;
+}
+
+.dependents input{
+	width: 100%;
+	padding: 2px 5px;
+}
+
+/* Educations */
+.educations{
+	font-size: 13px;
+	padding: 20px;	
+}
+
+.elem,.high{
+	display: grid;
+	grid-template-columns: 1fr minmax(100px, 100px) 1fr;
+	grid-gap: 20px;
+}
+.college{
+	display: grid;
+	grid-template-columns: 1fr minmax(100px, 100px) 1fr;
+	grid-gap: 20px;
+}
+
+.educations > div,
+.educations > h3{
+	padding: 10px 20px;
+}
+
+.educations input{
+	width: 100%;
+	padding: 2px 5px;	
+}
+
+/* Work Experience */
+.work_exp{
+	font-size: 13px;
+	padding: 20px;	
+	display: grid;
+	align-items: center;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-areas: 
+		"work_employer work_role work_start work_end"
+		"work_type . . ."
+		"work_desc work_desc work_desc work_desc";
+}
+
+.work_exp > div{
+	padding: 0 20px 0 20px;
+}
+
+.work_employer{
+	grid-area: work_employer;
+}
+.work_role{
+	grid-area: work_role;
+}
+.work_start{
+	grid-area: work_start;
+}
+.work_end{
+	grid-area: work_end;
+}
+.work_type{
+	grid-area: work_type;
+	display: flex;
+	align-items: center;
+}
+.work_desc{
+	grid-area: work_desc;
+}
+
+.work_exp input[type="text"],
+.work_exp textarea{
+	width: 100%;
+	padding: 2px 5px;
+}
+
+/* Initial Screening */
+.app_process{
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	grid-gap: 30px;
+	font-size: 14px;
+}
+
+.app_process input,
+.app_process select{
+	padding: 2px 5px;
+}
+
+.app_user{
+	background-color: #f0f0f0;
+	display: grid;
+	place-items: center;
+	height: 150px;
+}
+
+.app_user > div{
+	margin: 0 auto;
+}
+
+.process_nav{
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+.process_nav::before{
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 1px;
+	background-color: #1f951a;
+}
+
+.process_tab{
+	padding: 10px 0 20px 0;
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+.tab_circle{
+	border-radius: 50%;
+	border: 1px solid #cccccc;
+	background-color: #fff;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	bottom: 0;
+	transform: translateY(50%);
+	cursor: pointer;
+}
+
+.actv_circle{
+	border-color: #1f951a;
+}
+
+.comp_circle{
+	border-color: #1f951a;
+	background-color: #1f951a;
+}
+
+.process_body h3{
+	margin-top: 50px;
+	margin-bottom: 20px;
+	color: #4d4d4d;
+	font-weight: bolder;
+}
+
+.exam{
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	grid-column-gap: 10px;
+}
+
+.exam label{
+	margin-right: 5px;
+}
+
+.initial_result{
+	display: grid;
+	grid-gap: 20px;
+}
+
+.initial_result textarea{
+	width: 100%;
+	min-height: 150px;
+	resize: none;
+}
+
+.overall_result h3{
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+input.init_submit{
+	padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+    position: absolute;
+    right: 35px;
+    bottom: 15px;
+}
+
+.sched{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 10px;
+	margin-top: 40px;
+	justify-content: space-between;
+}
+
+/*** Candidates ***/
+.candidates{
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 40px; 
+}
+
+/* Candidate Interview */
+.cand_info input,
+.cand_info textarea,
+.cand_info select{
+	padding: 2px 5px;
+	font-family: 'Roboto', sans-serif;
+	line-height: 1.5em;
+	font-size: 14px;
+}
+
+.cand_basic_info{
+	display: grid;
+	grid-template-columns: 1fr 4fr 1fr 4fr;
+	align-items: baseline;
+	grid-row-gap: 15px;
+	grid-column-gap: 40px;
+	padding: 40px 20px;
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+
+input[data-for="cand-gender"],
+input[data-for="cand-age"]{
+	min-width: 70px;
+	max-width: 30%;
+}
+
+.cand_education{
+	display: flex;
+	flex-direction: column;
+	font-size: 14px;
+	padding: 40px 20px;
+	margin-bottom: 20px;
+}
+
+.cand_education h4{
+	margin-bottom: 20px;
+	text-decoration: underline;
+}
+.cand_education h4:not(:first-child){
+	margin-top: 30px;
+}
+
+.cand_elem,
+.cand_high{
+	display: grid;
+	grid-column-gap: 35px;
+	grid-template-columns: 88px 350px 100px 350px;
+	align-items: baseline;
+}
+
+.cand_college{
+	display: grid;
+	grid-column-gap: 35px;
+	grid-row-gap: 15px;
+	grid-template-columns: 88px 350px 100px 350px;
+	grid-template-rows: repeat(2, 1fr);
+	align-items: baseline;
+}
+
+.cand_elem input[name="yr"],
+.cand_high input[name="yr"],
+.cand_college input[name="yr"]{
+	min-width: 70px;
+	max-width: 30%;
+}
+
+.cand_work_exp{
+	display: grid;
+	grid-template-columns: 1fr 4fr 1fr 4fr;
+	grid-template-rows: repeat(3, 1fr) minmax(150px,auto);
+	align-items: baseline;
+	grid-row-gap: 15px;
+	grid-column-gap: 40px;
+	padding: 40px 20px;
+	font-size: 14px;
+	margin-bottom: 20px;
+	grid-template-areas: 
+		"employer_lbl employer_val startdt_lbl startdt_val"
+		"role_lbl role_val enddt_lbl enddt_val"
+		"desc_lbl desc_lbl . ."
+		"desc_val desc_val desc_val desc_val"
+}
+
+.cand_employer_lbl{
+	grid-area: employer_lbl;
+}
+.cand_work_exp input[name="employer"]{
+	grid-area: employer_val;
+}
+.cand_startdt_lbl{
+	grid-area: startdt_lbl;
+}
+.cand_work_exp input[name="startdt"]{
+	grid-area: startdt_val;
+	width: 105px;
+}
+.cand_role_lbl{
+	grid-area: role_lbl;
+}
+.cand_work_exp input[name="role"]{
+	grid-area: role_val;
+}
+.cand_enddt_lbl{
+	grid-area: enddt_lbl;
+}
+.cand_work_exp input[name="enddt"]{
+	grid-area: enddt_val;
+	width: 105px;
+}
+.cand_desc_lbl{
+	grid-area: desc_lbl;
+	align-self: end;
+}
+.cand_work_exp textarea{
+	grid-area: desc_val;
+	width: 100%;
+	height: 200px;
+	resize: none;
+}
+
+.bpo{
+	margin-bottom: 60px;
+}
+.bpo > label{
+	margin-left: 20px;
+}
+
+.cand_skills{
+	padding: 40px 20px;
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+
+.cand_skills ul{
+	list-style-type: square;
+}
+
+.cand_skills li{
+	margin-bottom: 5px;
+}
+
+.assessment{
+	background-color: #f2f2f2;
+	width: 100%;
+	min-height: 300px;
+	margin-bottom: 20px;
+	padding: 20px;
+	font-size: 14px;
+}
+
+.assessment h3{
+	margin-bottom: 40px;
+}
+.assessment select{
+	margin-bottom: 20px;
+}
+.assessment p{
+	margin: 5px 0;
+}
+.assessment textarea{
+	width: 100%;
+	min-height: 150px;
+	resize: none;
+}
+
+.assessment input[type="submit"]{
+	padding: 5px 15px;
+	border-radius: 5px;
+	border: none;
+	margin: auto;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 25%);
+}
