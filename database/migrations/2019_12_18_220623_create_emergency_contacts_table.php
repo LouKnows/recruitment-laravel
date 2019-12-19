@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePersonalDetailsTable extends Migration
+class CreateEmergencyContactsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreatePersonalDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('personal_details', function (Blueprint $table) {
+        Schema::create('emergency_contacts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('first_name');
-            $table->string('middle_name');
-            $table->string('last_name');
+            $table->integer('person_id')->unsigned();
+            $table->string('full_name');
+            $table->string('address');
+            $table->string('contact_no');
+            $table->string('relationship');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreatePersonalDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personal_details');
+        Schema::dropIfExists('emergency_contacts');
     }
 }

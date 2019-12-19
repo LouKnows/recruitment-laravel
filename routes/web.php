@@ -12,8 +12,13 @@
 */
 
 // Root route
-Route::get('/','ApplicantController@index');
+Route::get('/','ApplicantsController@index');
 
 
-//Route::resource('personal_details','PersonalDetailController');
-Route::resource('applicants','ApplicantController');
+//
+Route::resource('applicants','ApplicantsController');
+Route::resource('spouses','SpousesController');
+Route::resource('emergency_contacts','EmergencyContactsController');
+Route::resource('dependents','DependentsController');
+Route::resource('colleges','CollegesController');
+Route::resource('work_experiences','WorkExperiencesController');

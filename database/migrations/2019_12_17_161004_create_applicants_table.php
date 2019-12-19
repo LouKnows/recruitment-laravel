@@ -15,7 +15,7 @@ class CreateApplicantsTable extends Migration
     {
         Schema::create('applicants', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('personal_detail_id')->unsigned();
+            $table->integer('person_id')->unsigned();
             $table->string('applied_for');
             $table->timestamps();
         });

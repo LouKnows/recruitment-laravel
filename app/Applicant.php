@@ -11,6 +11,6 @@ class Applicant extends Model
     ];
     //
     public function personal_detail(){
-    	return $this->belongsTo('App\PersonalDetail');
+    	return $this->belongsTo('App\Person');
     }
 }

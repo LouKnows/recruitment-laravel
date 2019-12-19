@@ -8,6 +8,6 @@ class Employee extends Model
 {
     //
     public function personal_details(){
-    	return $this->hasOne('App\PersonalDetail');
+    	return $this->belongsTo('App\Person');
     }
 }

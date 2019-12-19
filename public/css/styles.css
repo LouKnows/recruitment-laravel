@@ -1,4 +1,3 @@
-@import './reset.css';
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 /* width */
@@ -98,13 +97,14 @@ a:not(.btn):hover{
 .btn-more{
 	color: #fff;
 	background-color: #bfbfbf;
+	font-size: 13px;
+	margin-top: 20px;
 	cursor: pointer;
 }
 
 .btn-more:hover{
 	color: #fff;
 	background-color: #cccccc;
-	cursor: pointer;
 }
 
 .btn-form{
@@ -470,10 +470,11 @@ header::after{
 	grid-template-columns: 1fr minmax(100px, 100px) 1fr;
 	grid-gap: 20px;
 }
-.college{
+.colleges{
 	display: grid;
 	grid-template-columns: 1fr minmax(100px, 100px) 1fr;
 	grid-gap: 20px;
+	margin-bottom: 20px;
 }
 
 .educations > div,
