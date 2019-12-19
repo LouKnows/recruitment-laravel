@@ -12,13 +12,18 @@
 */
 
 // Root route
-Route::get('/','ApplicantsController@index');
+Route::get('/','ApplicantsController@index')->name('root');
 
 
-//
-Route::resource('applicants','ApplicantsController');
+// custom routes
+Route::get('/applicants/new/{id}','ApplicantsController@create')->name('applicants.create');
+Route::post('/applicants','ApplicantsController@store')->name('applicants.store');
+
+
+// resource routes
 Route::resource('spouses','SpousesController');
 Route::resource('emergency_contacts','EmergencyContactsController');
 Route::resource('dependents','DependentsController');
 Route::resource('colleges','CollegesController');
 Route::resource('work_experiences','WorkExperiencesController');
+Route::resource('persons','PersonsController');

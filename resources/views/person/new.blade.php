@@ -11,7 +11,7 @@
 				<div><a class="link" href="/">Applicants</a></div>
 				<div><a href="#">Employees</a></div>
 			</div>
-			<form action="/applicants" method="post">
+			<form action="/persons" method="post">
 				{{ csrf_field() }}
 				<div class="applicant_info">
 					<div class="card info">

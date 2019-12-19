@@ -9,8 +9,9 @@ class Applicant extends Model
 	protected $fillable = [
     	'applied_for'
     ];
-    //
-    public function personal_detail(){
+
+    // has one personal detail
+    public function person(){
     	return $this->belongsTo('App\Person');
     }
 }
