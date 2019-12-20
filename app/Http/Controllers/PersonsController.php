@@ -7,7 +7,7 @@ use App\Person;
 
 class PersonsController extends Controller
 {
-    //
+    // show person new form
 	public function create(){
 		return view('person.new');
 	}
@@ -47,5 +47,7 @@ class PersonsController extends Controller
             }
         
         return redirect()->route('applicants.create' , ['id' => $person->id]);
-    }	
+    }
+
+    
 }

@@ -17,10 +17,11 @@ Route::get('/','ApplicantsController@index')->name('root');
 
 // custom routes
 Route::get('/applicants/new/{id}','ApplicantsController@create')->name('applicants.create');
-Route::post('/applicants','ApplicantsController@store')->name('applicants.store');
+//Route::post('/applicants','ApplicantsController@store')->name('applicants.store');
 
 
 // resource routes
+Route::resource('applicants','ApplicantsController')->except(['create']);
 Route::resource('spouses','SpousesController');
 Route::resource('emergency_contacts','EmergencyContactsController');
 Route::resource('dependents','DependentsController');

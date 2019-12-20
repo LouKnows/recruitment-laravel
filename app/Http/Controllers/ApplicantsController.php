@@ -27,5 +27,9 @@ class ApplicantsController extends Controller
         return redirect()->route('root');
     }
 
+    public function show(Applicant $applicant){
+        $person = $applicant->person;
 
+        return view('applicant.show',compact('person'));
+    }
 }

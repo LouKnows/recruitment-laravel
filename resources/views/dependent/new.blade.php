@@ -1,4 +1,5 @@
-<div class="dependents" data-id="{{$idx}}">
+<div class="dependents grp" data-id="{{$idx}}">
+	<span class="remove fa fa-times-circle" title="Remove"></span>
 	<div class="dependent_fullname">
 		<div>Full Name</div>
 		<input type="text" name="dependents[{{$idx}}][full_name]">

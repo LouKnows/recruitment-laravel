@@ -1,4 +1,5 @@
-<div class="work_exp" data-id="{{$idx}}">
+<div class="work_exp grp" data-id="{{$idx}}">
+	<span class="remove fa fa-times-circle" title="Remove"></span>
 	<div class="work_employer">
 		<div>Employer/Company</div>
 		<input type="text" name="work_exp[{{$idx}}][employer]">

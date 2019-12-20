@@ -1,4 +1,5 @@
-<div class="colleges" data-id="{{$idx}}">	
+<div class="colleges grp" data-id="{{$idx}}">
+	<span class="remove fa fa-times-circle" title="Remove"></span>	
 	<div class="edu_col_school">
 		<div>School Name</div>
 		<input type="text" name="colleges[{{$idx}}][school_name]">

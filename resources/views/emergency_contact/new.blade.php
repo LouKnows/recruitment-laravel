@@ -1,4 +1,5 @@
-<div class="emergency_contact" data-id="{{$idx}}">
+<div class="emergency_contact grp" data-id="{{$idx}}">
+	<span class="remove fa fa-times-circle" title="Remove"></span>
 	<div class="emergency_fullname">
 		<div>Full Name</div>
 		<input type="text" name="emergency_contacts[{{$idx}}][full_name]">

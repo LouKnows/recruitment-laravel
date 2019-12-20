@@ -59,5 +59,15 @@ class Person extends Model
     public function work_experiences(){
     	return $this->hasMany('App\WorkExperience');
     }
+
+    //-- helper
+    public function elem(){
+        return $this->middle_schools()->where('education_type',1)->first();
+    }
+
+    public function high(){
+        return $this->middle_schools()->where('education_type',2)->first();
+    }
+
 }
  

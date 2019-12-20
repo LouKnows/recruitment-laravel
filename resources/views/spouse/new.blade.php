@@ -1,4 +1,5 @@
-<div class="spouse_info" data-id="{{$idx}}">
+<div class="spouse_info grp" data-id="{{$idx}}">
+	<span class="remove fa fa-times-circle" title="Remove"></span>
 	<div class="spouse_fname">
 		<div>First Name</div>
 		<input type="text" name="spouses[{{$idx}}][first_name]">
