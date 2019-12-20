@@ -10,7 +10,13 @@
 </header>
 <div class="sub-header">
     <ul class="container">
-        <li><a class="link" href="#">Resources</a></li>
+        <li id="tab-resource">
+            <span>Resources</span>
+            <div class="drop-down">
+                <a href="/">Applicants</a>
+                <a href="#">Employees</a>
+            </div>
+        </li>
         <li><a href="#">Training Rooster</a></li>
     </ul>
 </div>
