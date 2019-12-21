@@ -11,16 +11,20 @@
 |
 */
 
-// Root route
+// Root Route
 Route::get('/','ApplicantsController@index')->name('root');
 
 
-// custom routes
+// Custom Routes
 Route::get('/applicants/new/{id}','ApplicantsController@create')->name('applicants.create');
-//Route::post('/applicants','ApplicantsController@store')->name('applicants.store');
+Route::get('/spouses/{person_id}/list','SpousesController@list')->name('spouses.list');
+Route::get('/persons/{person_id}/list','PersonsController@list')->name('persons.list');
+Route::get('/emergency_contacts/{person_id}/list','EmergencyContactsController@list')->name('contacts.list');
+Route::get('/dependents/{person_id}/list','DependentsController@list')->name('dependents.list');
+Route::get('/educations/{person_id}/list','EducationsController@list')->name('educations.list');
+Route::get('/work_experiences/{person_id}/list','WorkExperiencesController@list')->name('work.list');
 
-
-// resource routes
+//-- Resource Routes
 Route::resource('applicants','ApplicantsController')->except(['create']);
 Route::resource('spouses','SpousesController');
 Route::resource('emergency_contacts','EmergencyContactsController');
@@ -28,3 +32,9 @@ Route::resource('dependents','DependentsController');
 Route::resource('colleges','CollegesController');
 Route::resource('work_experiences','WorkExperiencesController');
 Route::resource('persons','PersonsController');
+
+
+
+
+Route::get('/show-info/{id}','ApplicantsController@show_layout');
+

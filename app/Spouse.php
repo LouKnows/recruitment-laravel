@@ -16,4 +16,8 @@ class Spouse extends Model
     	'contact_no',
     	'address'
     ];
+
+    public function person(){
+        $this->belongsTo('App\Person');
+    }
 }

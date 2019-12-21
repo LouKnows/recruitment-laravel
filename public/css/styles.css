@@ -145,7 +145,28 @@ a:not(.btn):hover{
 	color: #2d9bd2;
 }
 
-/*** Header ***/
+.wrapper{
+	margin: 40px auto 40px auto;
+}
+
+.wp-mid{
+	width: 80%;
+}
+
+h3.h3-normal{
+	font-weight: normal;
+}
+
+input{
+	padding: 5px 10px;
+}
+
+/*
+|------------------------------------------ 
+|-- Header
+|------------------------------------------
+*/
+
 
 header{
 	position: relative;
@@ -229,7 +250,11 @@ header::after{
   	background-color: #3578bc;
 }
 
-/*** Resources > Applicants ***/
+/*
+|------------------------------------------ 
+|-- Resources > Applicants
+|------------------------------------------
+*/
 
 .resources{
 	display: grid;
@@ -295,7 +320,11 @@ header::after{
 	background-color: #f2f2f2;
 }
 
-/*** Resource > Applicants > New Applicant ***/
+/*
+|------------------------------------------ 
+|-- Resource > Applicants > New Applicant
+|------------------------------------------
+*/
 .back[data-for="new-applicant"]{
 	position: absolute;
 	left: 50%;
@@ -583,7 +612,11 @@ header::after{
 	padding: 2px 5px;
 }
 
-/* Initial Screening */
+/*
+|------------------------------------------ 
+|-- Initial Screening
+|------------------------------------------
+*/
 .app_process{
 	display: grid;
 	grid-template-columns: 1fr 3fr;
@@ -881,4 +914,103 @@ input[data-for="cand-age"]{
 	position: relative;
 	left: 50%;
 	transform: translate(-50%, 25%);
+}
+
+
+/*
+|------------------------------------------ 
+|-- Candidate Info
+|------------------------------------------
+*/
+
+
+.nav-tab{
+	display: inline-block;
+	padding: 5px 10px;
+	border: 1px solid #cccccc;
+	border-bottom-color: transparent;
+	margin-right: 1px;
+	position: relative;
+	font-size: 15px;
+}
+
+.nav-tab:not(.active){
+	border: 1px solid #a3bbd2;
+	background-color: #a3bbd2;
+	color: #fff;
+	cursor: pointer;
+}
+
+.nav-tab:not(.active):hover{
+	border: 1px solid #5481ab;
+	background-color: #5481ab;
+	color: #fff;
+	cursor: pointer;
+}
+
+.nav-tab.active{
+	color: #4f5a68;
+	font-weight: bolder;
+	cursor: default;
+}
+
+.nav-tab.active::after{
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	height: 3px;
+	width: 100%;
+	background-color: #fff;
+	z-index: 1;
+}
+
+.info-content{
+	min-height: 300px;
+	border: 1px solid #cccccc;
+	font-size: 14px;
+	padding: 10px;
+	position: relative;
+}
+
+.basic-content,
+.spouse-content,
+.contact-content,
+.dependent-content,
+.education-content,
+.work-content{
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	grid-gap: 10px;
+	width: 50%;
+	margin: 20px auto;
+	align-items: baseline;
+}
+
+.col-span-2{
+	grid-column: 1 / span 2;
+}
+.grid-col-1{
+	display: grid;
+	width: 100%;
+	grid-row-gap: 10px;
+}
+
+.fa.bi-edit{
+	position: absolute;
+	top: 20px;
+	right: 40px;
+	font-size: 20px;
+	visibility: hidden;
+	opacity: 0;
+	cursor: pointer;
+
+	transition: opacity 200ms ease-in-out,
+	            visibility 200ms ease-in-out;
+}
+
+.info-content:hover .bi-edit{
+	visibility: visible;
+	opacity: 1;
 }

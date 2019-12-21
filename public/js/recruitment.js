@@ -135,6 +135,37 @@ $(document).ready(function(){
 			element.remove();
 		});
 	});
+
+	$(".info-nav").on("click",".nav-tab:not(.active)", function(){
+		var container = $(".info-content");
+		var tab = $(this).data("tab");
+		var id = $(this).data('id');
+
+		$(".active").removeClass("active");
+		$(this).addClass("active");
+
+		switch(tab){
+			case 'basic':
+				container.load('/persons/'+ id +'/list');
+				break;
+			case 'spouse':
+				container.load('/spouses/'+ id +'/list');
+				break;
+			case 'contact':
+				container.load('/emergency_contacts/'+ id +'/list');
+				break;
+			case 'dependent':
+				container.load('/dependents/'+ id +'/list');
+				break;
+			case 'education':
+				container.load('/educations/'+ id +'/list');
+				break;
+			case 'work':
+				container.load('/work_experiences/'+ id +'/list');
+				break;
+		}
+
+	});
 });
 
 
