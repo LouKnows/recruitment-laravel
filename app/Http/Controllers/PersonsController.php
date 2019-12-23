@@ -49,11 +49,22 @@ class PersonsController extends Controller
         return redirect()->route('applicants.create' , ['id' => $person->id]);
     }
 
-    public function list($id){
-        $person = Person::find($id);
+    public function list($person_id){
+        $person = Person::find($person_id);
 
         return view('person.list',compact('person'));
     }
 
-    
+    public function edit(Person $person){
+        $applicant_id = $person->applicant->id;
+        return view('person.edit',compact('person','applicant_id'));
+    }
+
+    public function update(Request $request, $person_id){
+        $person = Person::find($person_id);
+        $person->update($request->person);
+        return view('person.list',compact('person'));
+    }
+
+
 }

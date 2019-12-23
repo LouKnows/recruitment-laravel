@@ -136,36 +136,102 @@ $(document).ready(function(){
 		});
 	});
 
-	$(".info-nav").on("click",".nav-tab:not(.active)", function(){
+	$(".info-table").on("click",".nav-tab:not(.active), .cancel", function(){
 		var container = $(".info-content");
 		var tab = $(this).data("tab");
-		var id = $(this).data('id');
+		var applicant_id = $(this).data('id');
 
 		$(".active").removeClass("active");
 		$(this).addClass("active");
 
 		switch(tab){
 			case 'basic':
-				container.load('/persons/'+ id +'/list');
+				container.load('/persons/'+ applicant_id +'/list');
 				break;
 			case 'spouse':
-				container.load('/spouses/'+ id +'/list');
+				container.load('/spouses/'+ applicant_id +'/list');
 				break;
 			case 'contact':
-				container.load('/emergency_contacts/'+ id +'/list');
+				container.load('/emergency_contacts/'+ applicant_id +'/list');
 				break;
 			case 'dependent':
-				container.load('/dependents/'+ id +'/list');
+				container.load('/dependents/'+ applicant_id +'/list');
 				break;
 			case 'education':
-				container.load('/educations/'+ id +'/list');
+				container.load('/educations/'+ applicant_id +'/list');
 				break;
 			case 'work':
-				container.load('/work_experiences/'+ id +'/list');
+				container.load('/work_experiences/'+ applicant_id +'/list');
 				break;
 		}
 
 	});
+
+	$(".info-table").on("click",".edit", function(){
+		var container = $(".info-content");
+		var tab = $(this).data("tab");
+		var id = $(this).data('id');
+
+		switch(tab){
+			case 'basic':
+				container.load('/persons/'+ id +'/edit');
+				break;
+			case 'spouse':
+				container.load('/spouses/'+ id +'/edit');
+				break;
+			case 'contact':
+				container.load('/emergency_contacts/'+ id +'/edit');
+				break;
+			case 'dependent':
+				container.load('/dependents/'+ id +'/edit');
+				break;
+			case 'education':
+				container.load('/educations/'+ id +'/edit');
+				break;
+			case 'work':
+				container.load('/work_experiences/'+ id +'/edit');
+				break;
+		}
+	});
+
+	$(".info-table").on("submit","form", function(e){
+		var container = $(".info-content");
+		var form_data = {};
+		var url = $(this).attr("action");
+
+		$(this).find('[name]').each(function(){
+			form_data[this.name] = this.value;
+		});
+
+		e.preventDefault();
+		
+		$.ajaxSetup({
+	        headers: {
+	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	        }
+	    });
+	
+		$.ajax({
+			url: url,
+			method: 'PUT',
+			data: {
+				person: form_data
+			},
+			success: function(result){
+				container.empty().append(result);
+			}
+		});
+
+	});
+
+	$("#search-applicant").on("input", function(){
+		var search_text = $(this).val();
+		var container = $(".list tbody");
+
+		container.load('/applicants/search/' + search_text);
+	});
+
+
 });
 
 

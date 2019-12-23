@@ -33,11 +33,16 @@ class ApplicantsController extends Controller
         return view('applicant.show',compact('person'));
     }
 
-    public function show_layout($id){
-        //$person = $applicant->person;
-        $applicant = Applicant::find($id);
-        $person = $applicant->person;
+    public function search($skey=''){
+        $persons = Applicant::search($skey);
 
-        return view('applicant.show-layout',compact('person'));
+        return view('applicant.search',compact('persons'));
+    }
+
+    public function test(){
+        //$person = $applicant->person;
+        $person = Person::find(1);
+
+        dd($person);
     }
 }

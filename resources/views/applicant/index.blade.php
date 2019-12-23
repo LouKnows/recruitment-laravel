@@ -13,10 +13,11 @@
             </div>
             <div class="card">
                 <h3>Applicant List</h3>
-                <div class="cta">
+                <div class="cta-col-2">
                     <div class="search">
-                        <input type="text" name="search">
-                        <button class="btn btn-confirm">Search</button>
+                        <span>
+                            <input type="text" name="search" id="search-applicant">
+                        </span>
                     </div>
                     <a class="btn btn-add" href="{{route('persons.create')}}">+ New Applicant</a>
                 </div>
@@ -46,7 +47,7 @@
                                 @endforeach
                             @else
                                 <tr>
-                                    <td colspan="3">No applicant applied</td>
+                                    <td colspan="3">No applicants applied</td>
                                 </tr>
                             @endif
                         </tbody>

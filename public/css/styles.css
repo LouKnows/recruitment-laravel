@@ -147,6 +147,7 @@ a:not(.btn):hover{
 
 .wrapper{
 	margin: 40px auto 40px auto;
+	position: relative;
 }
 
 .wp-mid{
@@ -160,6 +161,32 @@ h3.h3-normal{
 input{
 	padding: 5px 10px;
 }
+
+.width-50{
+	width: 50%;
+}
+
+.margin-auto{
+	margin: 0 auto;
+}
+
+.cancel{
+	background-color: #d9d9d9;
+	color: #808080;
+	padding: 10px 15px;
+	border-radius: 5px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.cancel:hover{
+	background-color: #e6e6e6;
+}
+
+.col-gap-40{
+	grid-column-gap: 40px;
+}
+
 
 /*
 |------------------------------------------ 
@@ -276,15 +303,28 @@ header::after{
 	margin-bottom: 15px;
 }
 
-.cta{
+.cta-col-2{
 	font-size: 14px;
 	margin-top: 30px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
 
-.cta .search{
+.cta-col-2 .search{
 	justify-self: start;
+}
+
+.search{
+	position: relative;
+}
+
+.search > span::before{
+	content: '\f002';
+	font-family: 'FontAwesome';
+	position: absolute;
+	top: 50%;
+	left: 10px;
+	transform: translateY(-50%);
 }
 
 .search input{
@@ -293,7 +333,7 @@ header::after{
 }
 
 
-.cta a{
+.cta-col-2 a{
 	justify-self: end;
 	margin-right: 25px;
 }
@@ -997,7 +1037,7 @@ input[data-for="cand-age"]{
 	grid-row-gap: 10px;
 }
 
-.fa.bi-edit{
+.fa.edit{
 	position: absolute;
 	top: 20px;
 	right: 40px;
@@ -1010,7 +1050,14 @@ input[data-for="cand-age"]{
 	            visibility 200ms ease-in-out;
 }
 
-.info-content:hover .bi-edit{
+.info-content:hover .edit{
 	visibility: visible;
 	opacity: 1;
+}
+
+.no-data{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
 }

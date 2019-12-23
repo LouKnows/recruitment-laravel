@@ -11,5 +11,5 @@
 		</fieldset>
 	@endforeach
 @else
-	<p class="col-span-2">No dependents to display</p>
+	<p class="no-data">No dependents to display</p>
 @endif

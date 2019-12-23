@@ -13,6 +13,6 @@
 		<input type="text" value="{{ $work->end_date }}" disabled>
 		@endforeach
 	@else
-		<p class="col-span-2">No work experience to display</p>
+		<p class="no-data">No work experience to display</p>
 	@endif
 </div>

@@ -23,5 +23,5 @@
 		</fieldset>
 	@endforeach
 @else
-	<p class="col-span-2">No spouses to display</p>
+	<p class="no-data">No spouses to display</p>
 @endif

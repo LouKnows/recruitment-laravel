@@ -20,6 +20,6 @@
 			<input type="text" value="{{ $college->degree }}" disabled>
 		@endforeach
 	@else
-		<p class="col-span-2">No colleges to display</p>
+		<p class="col-span-2"><em>No colleges to display</em></p>
 	@endif
 </div>

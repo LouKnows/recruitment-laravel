@@ -40,4 +40,4 @@
 		<input type="text" value="{{ $person->province_address }}" disabled>
 	</div>
 </div>
-<span class="fa fa-edit bi-edit" id="bi-edit" data-id="{{ $person->id }}" title="Edit"></span>
+<span class="fa fa-edit edit" data-tab="basic" data-id="{{ $person->id }}" title="Edit"></span>

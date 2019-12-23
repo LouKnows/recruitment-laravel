@@ -17,5 +17,5 @@
 		</fieldset>
 	@endforeach
 @else
-	<p class="col-span-2">No emergency contacts to display</p>
+	<p class="no-data">No emergency contacts to display</p>
 @endif
